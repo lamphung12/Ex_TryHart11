@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body>
+<a href="/create-product">Create new Product</a>
+
+<form action="search-product" method="get">
+    <input type="text" name="name">
+    <input type="submit" value="Search">
+</form>
+<a href="/findTop4">Top4</a><br>
+<a href="/sortPriceAsc">Sap xep cao tu cao den thap</a>
+<a href="/sortPriceDesc">Sap xep thap tu cao den cao</a>
+
+<form action="/sortByPriceBetween" method="post">
+    <input type="number" name="one">
+    <input type="number" name="two">
+    <button >Search</button>
+</form>
+
+<form action="/sortByCategory" method="get">
+    <input type="number" name="id">
+    <input type="submit" value="Search">
+</form>
+
+<h1>Product</h1>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+    </tr>
+    <th:block th:each="p : ${product}">
+        <tr>
+            <td th:text="${p.getName()}"></td>
+            <td th:text="${p.getPrice()}"></td>
+            <td th:text="${p.getCategory().getName()}"></td>
+            <td><a th:href="@{/edit-product/__${p.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-product/__${p.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

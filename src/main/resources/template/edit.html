@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+</head>
+<body>
+<h1>Edit Product</h1>
+<p>
+    <a href="/home">Product list</a>
+</p>
+<form th:action="@{/edit-product}"  method="post">
+
+    <input th:type="hidden" name="id" th:value="${product.getId()}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="name" th:value="${product.getName()}"></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="text" name="price" th:value="${product.getPrice()}"></td>
+        </tr>
+        <tr>
+                <select name="category">
+                    <option th:each="cate : ${category}" th:value="${cate.getId()}" th:text="${cate.getName()}"></option>
+                </select>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Edit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

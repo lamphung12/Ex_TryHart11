@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Product</title>
+</head>
+<body>
+<h1>Create Product</h1>
+<p>
+    <a href="/home">Product list</a>
+</p>
+<!--<th:block th:if="${message}">-->
+<!--    <p th:text="${message}"></p>-->
+<!--</th:block>-->
+<form th:action="@{/create-product}"  method="post">
+    <input th:type="hidden" name="id"  >
+    <table>
+        <tr>
+            <td> Name</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td> Price</td>
+            <td><input type="text" name="price"></td>
+        </tr>
+        <tr>
+            <td>
+                <select name="category">
+                <option th:each="cate : ${category}" th:value="${cate.getId()}" th:text="${cate.getName()}"></option>
+            </select>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td> <input type="submit" value="Create"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
