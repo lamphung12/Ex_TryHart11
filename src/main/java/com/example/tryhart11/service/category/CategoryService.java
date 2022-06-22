@@ -3,6 +3,8 @@ package com.example.tryhart11.service.category;
 import com.example.tryhart11.model.Category;
 import com.example.tryhart11.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -32,4 +34,10 @@ public class CategoryService implements ICategoryService{
         categoryRepository.deleteById(id);
 
     }
+
+//    @Override
+//    public Page<Category> findAllByNameContaining(Pageable pageable, String name) {
+//
+//        return null;
+//    }
 }

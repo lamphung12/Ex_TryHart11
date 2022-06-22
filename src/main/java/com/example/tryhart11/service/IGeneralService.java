@@ -1,5 +1,9 @@
 package com.example.tryhart11.service;
 
+import com.example.tryhart11.model.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import java.util.Optional;
 
 public interface IGeneralService<T> {
@@ -10,5 +14,7 @@ public interface IGeneralService<T> {
     void save(T t);
 
     void remote(Long id);
+
+//    Page<T> findAllByNameContaining(Pageable pageable, String name);
 
 }

@@ -20,6 +20,8 @@ public interface IProductService extends IGeneralService<Product> {
 
     Iterable<Product> findAllByPriceBetween (int one ,int two);
 
-    Iterable<Product> findAllByCategory_Id(Long id);
+    Iterable<Product> findAllByCategory_Name(String name);
+
+    Iterable<Product> findAllByOrderByPrice();
 
 }

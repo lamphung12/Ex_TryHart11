@@ -4,6 +4,8 @@ import com.example.tryhart11.model.Category;
 import com.example.tryhart11.model.Product;
 import com.example.tryhart11.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -33,6 +35,12 @@ public class ProductService implements IProductService {
     public void remote(Long id) {
         productRepository.deleteById(id);
     }
+
+//    @Override
+//    public Page<Product> findAllByNameContaining(Pageable pageable, String name) {
+//
+//        return null;
+//    }
 
     @Override
     public Optional<Product> findAllByCategory(Category category) {
@@ -65,8 +73,13 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Iterable<Product> findAllByCategory_Id(Long id) {
-        return productRepository.findAllByCategory_Id(id);
+    public Iterable<Product> findAllByCategory_Name(String name) {
+        return productRepository.findAllByCategory_Name(name);
+    }
+
+    @Override
+    public Iterable<Product> findAllByOrderByPrice() {
+        return productRepository.findAllByOrderByPrice();
     }
 }
 

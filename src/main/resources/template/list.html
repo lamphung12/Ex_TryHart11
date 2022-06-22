@@ -11,27 +11,32 @@
     <input type="text" name="name">
     <input type="submit" value="Search">
 </form>
+<p>Tìm top 4 sản phẩm mới nhất</p><br>
 <a href="/findTop4">Top4</a><br>
-<a href="/sortPriceAsc">Sap xep cao tu cao den thap</a>
-<a href="/sortPriceDesc">Sap xep thap tu cao den cao</a>
-
+<p>Sắp xếp giá sản phẩm từ cao đến thấp</p><br>
+<a href="/sortPriceAsc">Sap xep cao tu cao den thap</a><br>
+<p>Sắp xếp giá sản phẩm từ thấp đến cao</p><br>
+<a href="/sortPriceDesc">Sap xep thap tu cao den cao</a><br>
+<p>Tìm kiếm sản phẩm theo khoảng giá</p><br>
 <form action="/sortByPriceBetween" method="post">
     <input type="number" name="one">
     <input type="number" name="two">
     <button >Search</button>
 </form>
-
+<p>Tìm kiếm sản phẩm theo danh mục</p><br>
 <form action="/sortByCategory" method="get">
-    <input type="number" name="id">
+    <input type="text" name="name">
     <input type="submit" value="Search">
 </form>
 
-<h1>Product</h1>
+<h1>List Product</h1>
 <table border="1">
     <tr>
         <th>Name</th>
         <th>Price</th>
         <th>Category</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     <th:block th:each="p : ${product}">
         <tr>

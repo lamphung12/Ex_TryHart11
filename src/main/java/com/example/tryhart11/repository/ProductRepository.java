@@ -2,6 +2,8 @@ package com.example.tryhart11.repository;
 
 import com.example.tryhart11.model.Category;
 import com.example.tryhart11.model.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -11,7 +13,9 @@ import java.util.Optional;
 @Repository
 public interface ProductRepository extends JpaRepository<Product,Long> {
 
-    Iterable<Product> findAllByCategory_Id(Long id);
+//    Page<Product> findAllByNameContaining(Pageable pageable, String name);
+
+    Iterable<Product> findAllByCategory_Name(String name);
     Optional<Product> findAllByCategory(Category category);
 
     Iterable<Product> findAllByNameContaining(String name);
@@ -27,8 +31,9 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     @Query(value = "select * from product order by price  ", nativeQuery = true)
     Iterable<Product> findAllByPrice();
 
-//    @Query(value = "select * from product where price between ?1 , ?2",nativeQuery = true)
-//    Iterable<Product> sortByPrice();
+    Iterable<Product> findAllByOrderByPrice();
+
+
 
 
 }
