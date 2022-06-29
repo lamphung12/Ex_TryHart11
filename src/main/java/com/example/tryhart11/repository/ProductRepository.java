@@ -16,6 +16,9 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
 //    Page<Product> findAllByNameContaining(Pageable pageable, String name);
 
     Iterable<Product> findAllByCategory_Name(String name);
+
+
+
     Optional<Product> findAllByCategory(Category category);
 
     Iterable<Product> findAllByNameContaining(String name);
@@ -32,6 +35,8 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     Iterable<Product> findAllByPrice();
 
     Iterable<Product> findAllByOrderByPrice();
+
+    Page<Product> findAllByCategory_Id(Long id,Pageable pageable);
 
 
 

@@ -3,6 +3,8 @@ package com.example.tryhart11.service.product;
 import com.example.tryhart11.model.Category;
 import com.example.tryhart11.model.Product;
 import com.example.tryhart11.service.IGeneralService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
@@ -23,5 +25,7 @@ public interface IProductService extends IGeneralService<Product> {
     Iterable<Product> findAllByCategory_Name(String name);
 
     Iterable<Product> findAllByOrderByPrice();
+
+    Page<Product> findAllByCategory_Id(Long id, Pageable pageable);
 
 }

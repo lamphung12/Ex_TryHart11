@@ -26,9 +26,8 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void save(Product product) {
-        productRepository.save(product);
-
+    public Product save(Product product) {
+      return   productRepository.save(product);
     }
 
     @Override
@@ -81,5 +80,12 @@ public class ProductService implements IProductService {
     public Iterable<Product> findAllByOrderByPrice() {
         return productRepository.findAllByOrderByPrice();
     }
+
+    @Override
+    public Page<Product> findAllByCategory_Id(Long id, Pageable pageable) {
+        return productRepository.findAllByCategory_Id(id,pageable);
+    }
+
+
 }
 
